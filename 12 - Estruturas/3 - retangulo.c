@@ -2,19 +2,24 @@
 
 #define TAM 3
 
+struct Ponto {
+    int x, y;
+};
+
 struct Retangulo{
-    int inferiorEsquerda, superiorDireita;
+    struct Ponto inferiorEsquerda;
+    struct Ponto superiorDireita;
 };
 
 void ler(struct Retangulo *pontos){
-    printf("Digite o ponto inferior esquerdo:\n");
-    scanf("%d", &pontos->inferiorEsquerda);
-    printf("Digite o ponto superior direito:\n");
-    scanf("%d", &pontos->superiorDireita);
+    printf("Digite o ponto x e y inferior esquerdo:\n");
+    scanf("%d %d", &pontos->inferiorEsquerda.x, &pontos->inferiorEsquerda.y);
+    printf("Digite o ponto x e y superior direito:\n");
+    scanf("%d %d", &pontos->superiorDireita.x, &pontos->superiorDireita.y);
 }
 void imprimir(struct Retangulo pontos){
-    printf("Ponto inferior esquerdo: %d\n", pontos.inferiorEsquerda);
-    printf("Ponto superior direito: %d\n", pontos.superiorDireita);
+    printf("Ponto x e y inferior esquerdo: %d %d\n", pontos.inferiorEsquerda.x, pontos.inferiorEsquerda.y);
+    printf("Ponto x e y superior direito: %d %d\n", pontos.superiorDireita.x, pontos.superiorDireita.y);
 }
 
 int main(){
@@ -25,7 +30,7 @@ int main(){
     }
 
     for (int i = 0; i < TAM; i++){
-        printf("Triângulo: %d\n", i + 1);
+        printf("Retângulo: %d\n", i + 1);
         imprimir(Retangulo1[i]);
         
     }
